@@ -44,11 +44,6 @@ public class MathUtils {
         return sum(applyFunctions(data, f1, f2));
     }
 
-
-
-
-
-
     private static Collection<Double> arrayToCollection(double[] data){
         return Arrays.stream(data).boxed().collect(Collectors.toList());
     }

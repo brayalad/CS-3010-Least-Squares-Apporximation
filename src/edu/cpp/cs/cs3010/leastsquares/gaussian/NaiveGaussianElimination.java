@@ -45,6 +45,7 @@ public class NaiveGaussianElimination implements GaussianElimination {
         final int size = constants.size();
 
         final List<Double> solution = new Vector<>(Collections.nCopies(size, 0.0));
+
         solution.set(size - 1, (constants.get(size - 1) / coefficients.get(size - 1, size - 1)));
         for(int i = size - 2; i >= 0; --i){
             double sum = constants.get(i);

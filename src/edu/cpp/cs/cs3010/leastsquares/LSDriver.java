@@ -2,6 +2,8 @@ package edu.cpp.cs.cs3010.leastsquares;
 
 import static java.util.Map.entry;
 
+import edu.cpp.cs.cs3010.leastsquares.engine.LeastSquaresAlgorithm;
+import edu.cpp.cs.cs3010.leastsquares.engine.LeastSquaresEngine;
 import edu.cpp.cs.cs3010.leastsquares.functions.ConstantFunction;
 import edu.cpp.cs.cs3010.leastsquares.functions.CosFunction;
 import edu.cpp.cs.cs3010.leastsquares.functions.CubedFunction;
@@ -15,6 +17,7 @@ import edu.cpp.cs.cs3010.leastsquares.functions.SinFunction;
 import edu.cpp.cs.cs3010.leastsquares.functions.SquaredFunction;
 import edu.cpp.cs.cs3010.leastsquares.gaussian.GaussianElimination;
 import edu.cpp.cs.cs3010.leastsquares.gaussian.NaiveGaussianElimination;
+import edu.cpp.cs.cs3010.leastsquares.models.FunctionBasis;
 import edu.cpp.cs.cs3010.leastsquares.models.Point;
 
 import java.util.List;
@@ -60,13 +63,14 @@ public final class LSDriver {
     private static final List<Double> EVALUATE_AT = List.of(0.5, 1.618, 2.35, 3.5, 4.2);
 
     public static void main(final String ...args){
+        final GaussianElimination gaussianElimination = new NaiveGaussianElimination();
+        final LeastSquaresAlgorithm leastSquaresAlgorithm = new LeastSquaresAlgorithm(gaussianElimination);
+        final LeastSquaresEngine leastSquares = new LeastSquaresEngine(leastSquaresAlgorithm);
 
-    final GaussianElimination gaussianElimination = new NaiveGaussianElimination();
-    final LeastSquaresAlgorithm leastSquaresAlgorithm = new LeastSquaresAlgorithm(gaussianElimination);
-    final LeastSquaresEngine leastSquares = new LeastSquaresEngine(leastSquaresAlgorithm);
-
-    for(final String exercise : EXERCISES.keySet()){
-        System.out.println(String.format(EXERCISE_STRING_FORMAT, exercise, leastSquares.evaluate(EXERCISES.get(exercise), DATA_SET, EVALUATE_AT)));
-    }
+        System.out.println("Data Set: " + DATA_SET.toString());
+        System.out.println("Evaluate At: " +EVALUATE_AT.toString());
+        for(final String exercise : EXERCISES.keySet()){
+            System.out.println(String.format(EXERCISE_STRING_FORMAT, exercise, leastSquares.evaluate(EXERCISES.get(exercise), DATA_SET, EVALUATE_AT)));
+        }
     }
 }

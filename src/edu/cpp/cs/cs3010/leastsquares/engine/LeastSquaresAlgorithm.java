@@ -1,12 +1,12 @@
-package edu.cpp.cs.cs3010.leastsquares;
+package edu.cpp.cs.cs3010.leastsquares.engine;
 
 import static edu.cpp.cs.cs3010.leastsquares.util.MathUtils.sum;
 import static edu.cpp.cs.cs3010.leastsquares.util.MathUtils.sumOfFunctions;
 
-import edu.cpp.cs.cs3010.leastsquares.functions.Function;
 import edu.cpp.cs.cs3010.leastsquares.gaussian.GaussianElimination;
 import edu.cpp.cs.cs3010.leastsquares.models.Coefficients;
 import edu.cpp.cs.cs3010.leastsquares.models.Constants;
+import edu.cpp.cs.cs3010.leastsquares.models.FunctionBasis;
 import edu.cpp.cs.cs3010.leastsquares.models.GaussianMatrix;
 import edu.cpp.cs.cs3010.leastsquares.models.Point;
 

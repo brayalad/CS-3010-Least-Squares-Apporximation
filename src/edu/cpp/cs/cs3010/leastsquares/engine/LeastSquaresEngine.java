@@ -1,5 +1,6 @@
-package edu.cpp.cs.cs3010.leastsquares;
+package edu.cpp.cs.cs3010.leastsquares.engine;
 
+import edu.cpp.cs.cs3010.leastsquares.models.FunctionBasis;
 import edu.cpp.cs.cs3010.leastsquares.models.Point;
 
 import java.util.List;
@@ -12,7 +13,6 @@ public class LeastSquaresEngine {
     public LeastSquaresEngine(final LeastSquaresAlgorithm leastSquares){
         this.leastSquares = leastSquares;
     }
-
 
     public List<Double> evaluate(final FunctionBasis basis, final Set<Point> dataSet, final List<Double> evaluateAt){
         return evaluateAt.stream().map(x -> leastSquares.evaluateApproxFunction(x, basis, dataSet)).collect(Collectors.toList());

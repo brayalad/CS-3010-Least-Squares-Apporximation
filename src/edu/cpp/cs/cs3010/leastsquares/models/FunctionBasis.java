@@ -1,4 +1,4 @@
-package edu.cpp.cs.cs3010.leastsquares;
+package edu.cpp.cs.cs3010.leastsquares.models;
 
 import edu.cpp.cs.cs3010.leastsquares.functions.Function;
 
