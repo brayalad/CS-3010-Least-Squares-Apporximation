@@ -6,21 +6,23 @@
  *
  * Copyright (c) 2019 - Edwin Rodr&iacute;guez.
  */
-package edu.cpp.cs.cs3010.leastsquares;
+package edu.cpp.cs.cs3010.leastsquares.models;
 
 /**
  * @author Edwin Rodr&iacute;guez
  *
  */
-public class Point {
-
-    protected double x;
-
-    protected double y;
+public final class Point {
+    private final double x;
+    private final double y;
 
     public Point(double x, double y) {
         this.x = x;
         this.y = y;
     }
+
+    public double getX(){ return x; }
+
+    public double getY(){ return y; }
 
 }

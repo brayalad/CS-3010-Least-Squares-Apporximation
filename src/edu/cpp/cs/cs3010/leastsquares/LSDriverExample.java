@@ -8,6 +8,9 @@
  */
 package edu.cpp.cs.cs3010.leastsquares;
 
+import edu.cpp.cs.cs3010.leastsquares.functions.Function;
+import edu.cpp.cs.cs3010.leastsquares.models.Point;
+
 import java.util.Arrays;
 
 /**
@@ -19,7 +22,7 @@ public class LSDriverExample {
     /**
      * @param args
      */
-    public static void main(String[] args) {
+    public static void run(String[] args) {
         double[] testPoints = {0.42, 1.25, 2.11};
 
         double[] linearRegResults = linearRegressionTest(testPoints);
@@ -30,7 +33,7 @@ public class LSDriverExample {
     private static double[] linearRegressionTest(double evalPoints[]) {
         double[] results = new double[evalPoints.length];
 
-        FunctionBasis fb = new FunctionBasis();
+        FunctionBasisOriginal fb = new FunctionBasisOriginal();
 
         fb.insertFunction(
                 new Function() {
@@ -60,7 +63,7 @@ public class LSDriverExample {
 
         Point[] dataSet = {new Point(0.0,3.0), new Point(1.0,3.14), new Point(2.0,1.618)};
 
-        LeastSquaresEngine lse = new LeastSquaresEngine();
+        LeastSquaresEngineOriginal lse = new LeastSquaresEngineOriginal();
         lse.setDataSet(dataSet);
         lse.setFunctionBasis(fb);
 
